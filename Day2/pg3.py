@@ -1,27 +1,15 @@
-def withdraw(balance, amount):
+def registor_user(name, age):
 
-    if amount <= 0:
-        raise ValueError("Amount must be greater than 0")
+    if age < 18:
+        raise ValueError("User must be 18 or older")
 
-    if amount > balance:
-        raise ValueError("Insufficient balance")
-
-    return balance - amount
+    print("User " + name + " registered successfully")
 
 
-balance = 5000
+name = input("Enter the name: ")
+age = int(input("Enter age: "))
 
 try:
-    amount = int(input("Enter withdrawal amount: "))
-
-    balance = withdraw(balance, amount)
-
+    registor_user(name, age)
 except ValueError as e:
     print("Error:", e)
-
-else:
-    print("Withdrawal successful")
-    print("Remaining balance:", balance)
-
-finally:
-    print("Transaction completed")
